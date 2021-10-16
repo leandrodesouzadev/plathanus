@@ -1,17 +1,17 @@
 from typing import List
 from typing import Optional
-from . import CrudBase, DomainType, ModelType
+from . import RepositoryBase, DomainType, ModelType
 from infrasctructure.database.connectors import DatabaseConnector
 
 
-class SQLCrudOperations(CrudBase):
+class SQLRepository(RepositoryBase):
 
     def __init__(self, model: ModelType):
         self.model = model
 
     def get_one(self, db: DatabaseConnector, *, id: int) -> Optional[ModelType]:
         return db.connection.query(self.model).filter_by(id=id).first()
-    
+
     def get_multi(self, db: DatabaseConnector) -> List[ModelType]:
         return db.connection.query(self.model).all()
 
@@ -24,7 +24,7 @@ class SQLCrudOperations(CrudBase):
         return obj
 
     def update(self, db: DatabaseConnector, obj: ModelType, other: DomainType) -> ModelType:
-        
+
         encoded = obj.as_dict()
         for key, value in other.__dict__.items():
             if key in encoded:

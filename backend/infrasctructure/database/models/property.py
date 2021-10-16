@@ -24,7 +24,7 @@ class PropertyRegister(DeclarativeBase):
 
 
 class PropertyRegisterImage(DeclarativeBase):
-    
+
     __tablename__ = 'property_registers_images'
 
     property_register_id = Column(
@@ -32,3 +32,6 @@ class PropertyRegisterImage(DeclarativeBase):
         ForeignKey(f'{PropertyRegister.__tablename__}.id')
     )
     filename = Column(String)
+
+    def __init__(self, filename: str):
+        self.filename = filename

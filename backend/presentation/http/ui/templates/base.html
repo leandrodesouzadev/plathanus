@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" media="screen" href="/static/css/pack-home-532ddf28.css">
+        <link rel="stylesheet" media="screen" href="/static/css/pack-member-common-f825c17d.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% block title %}
+    {%endblock%}
+    </head>
+    <body>
+        <nav id="header" class="navbar fixed-top navbar-member-menu navbar-expand-md navbar-dark bg-tabas-black">
+            <div class="navbar-member-menu__content d-none d-lg-flex">
+                <a id="logo_navbar_home_large_screen" class="navbar-brand mt-0 mx-auto ms-lg-3 mt-md-auto ms-xl-5 p-0 me-lg-auto m-auto pe-xl-5 d-none d-lg-flex " href="/">
+                    <img class="tabas-navbar-logo" alt="Leandro Logo" src="/static/css/logo.png">
+                </a>
+                <div class="navbar-nav ms-auto me-0 me-xl-4 text-uppercase">
+                    <ul class="navbar-nav my-auto" id="navbar_menu_list">
+                      <li class="nav-item mx-0 mx-xl-2"><a class="nav-link text-white" href="/ui/properties">Properties</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-nav ms-auto me-0 me-xl-4 text-uppercase">
+                    <ul class="navbar-nav my-auto" id="navbar_menu_list">
+                      <li class="nav-item mx-0 mx-xl-2"><a class="nav-link text-white" href="/ui/properties/new">Add Property</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section>
+            {% block body %}
+            {%endblock%}
+        </section>
+    </body>
+</html>

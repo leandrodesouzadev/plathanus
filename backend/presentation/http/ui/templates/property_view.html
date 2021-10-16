@@ -1,0 +1,24 @@
+{% extends "base.html"%} {% block title %}
+<title>Property {{property['id']}} View</title>
+{% endblock %} {% block body %}
+
+<div
+  id="properties"
+  class="w-pc-100 w-pc-md-60 row mx-0"
+  style="margin-top: 60px"
+>
+  {% for image in property['images_ids'] %}
+  <div class="col-12 col-xl-6 mb-3 properties--list">
+    
+    <div class="property-card property-card-list w-100 h-100 bg-white shadow px-0">
+      <div class="position-relative">
+        <img class="h-px-250 h-px-sm-350 h-px-xl-250 h-px-xxl-350 w-100" src="/static/{{image}}">
+        </img>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+    
+  
+</div>
+{% endblock %}

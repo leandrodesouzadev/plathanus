@@ -1,5 +1,5 @@
 from typing import List
-from fastapi import UploadFile
+from typing import Optional
 from pydantic import BaseModel
 
 
@@ -13,6 +13,5 @@ class UpdateProperty(BaseProperty):
 
 class ReadProperty(BaseProperty):
 
-    class Config:
-        orm_mode = True
-        
+    id: int
+    images_ids: Optional[List[int]] = None

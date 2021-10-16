@@ -1,0 +1,41 @@
+{% extends "base.html"%} {% block title %}
+<title>Property Add</title>
+{% endblock %} {% block body %}
+
+<div style="margin-top: 60px"></div>
+{% if has_errors %}
+    <div class="toast fade show border border-3 border-danger" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-white rounded-0">
+            <strong class="me-auto text-uppercase text-danger">Error</strong>
+        <button type="button" class="btn-close ms-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body bg-white">
+        {{error_message}}
+        </div>
+    </div>
+{% endif %}
+<form id="landlord-contact-form" class="hero__form" action="/ui/properties/" enctype='multipart/form-data' data-remote="true" method="post" style="margin: 1em">
+    <div class="input-group-tabas pb-3">
+        <label for="name" class="label-tabas">Name</label>
+        <input id="name" class="input-tabas" required="required" autocomplete="name" type="text" name="name">
+    </div>
+    <div class="input-group-tabas pb-3">
+        <label class="label-tabas" for="images">Select property images:</label>
+        <input class="input-tabas" type="file" id="images" name="images" required="required" multiple><br><br>
+    </div>
+    <div class="mt-3">
+        <button id="hero__form-submit" type="submit" class=" mt-3 btn btn-lg btn-tabas-black text-white fs-6 py-3 fw-bold text-uppercase rounded-0">
+        <span>Add</span>
+        <span data-loader="true" class="icon-w-small icon-h-small loader-icon icon-right" style="display: none">
+            <span class="loader">
+            <div class="spinner-border spinner-border-sm text-white ms-2" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            </span>
+        </span>
+        </button>
+    </div>
+{% endblock %}
+
+
+

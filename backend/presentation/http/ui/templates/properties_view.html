@@ -1,0 +1,25 @@
+{% extends "base.html"%} {% block title %}
+<title>Properties View</title>
+{% endblock %} {% block body %}
+
+<div id="properties" class="w-pc-100 w-pc-md-60 row mx-0" style="margin-top: 20px">
+
+    {% for propertie in properties %}
+    <div class="col-12 col-xl-6 mb-3 properties--list">
+    <div class="property-card property-card-list w-100 h-100 bg-white shadow px-0" style="margin: 1em">
+        <a href="/ui/properties/{{propertie['id']}}" class="property-card-list-link link-tabas-grey h-100 w-100 d-flex flex-column align-items-stretch" target="_blank">
+            <div class="position-relative">
+                <img class="h-px-250 h-px-sm-350 h-px-xl-250 h-px-xxl-350 w-100" src="/static/{{propertie['images_ids'][2]}}">
+                </img>
+            </div>
+            <div class="p-4 position-relative d-flex flex-column flex-fill">
+                <div class="fs-2 fw-bold text-tabas-grey">{{propertie['name']}}</div>
+            </div>
+        </a>
+    </div>
+    </div>
+    {% endfor %}
+    
+  </div>
+</div>
+{% endblock %}

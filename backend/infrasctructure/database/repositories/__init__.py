@@ -10,12 +10,12 @@ DomainType = TypeVar("DomainType", bound=DomainModel)
 ModelType = TypeVar("ModelType", bound=DeclarativeBase)
 
 
-class CrudBase(ABC):
+class RepositoryBase(ABC):
 
     model: ModelType
 
     @abstractmethod
-    def get_one(self, db: DatabaseConnector) -> DomainType:
+    def get_one(self, db: DatabaseConnector, id: int) -> DomainType:
         ...
 
     @abstractmethod
@@ -23,13 +23,21 @@ class CrudBase(ABC):
         ...
 
     @abstractmethod
-    def create(self, db: DatabaseConnector) -> DomainType:
+    def create(self, db: DatabaseConnector, obj: DomainType) -> DomainType:
         ...
 
     @abstractmethod
-    def update(self, db: DatabaseConnector) -> DomainType:
+    def update(self, db: DatabaseConnector, obj: DomainType, other: DomainType) -> DomainType:
         ...
 
     @abstractmethod
-    def delete(self, db: DatabaseConnector) -> DomainType:
+    def delete(self, db: DatabaseConnector, obj: ModelType) -> DomainType:
         ...
+
+
+class RepositoryError(Exception):
+    cause: str
+
+    def __init__(self, cause: str) -> None:
+        self.cause = cause
+        super().__init__(cause)
